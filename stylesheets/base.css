@@ -1,0 +1,39 @@
+/* CSS flipping tutorial from https://davidwalsh.name/css-flip */
+
+.card {
+    transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.card, .front, .back {
+    height: 430px;
+    width: 295px;
+    border-radius: 10px;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+.back {
+    background: url(../images/yugioh_card_back.jpg);
+    background-size: cover;
+    height: 430px;
+    width: 295px;
+    border-radius: 10px;
+    transform: rotateY(180deg);
+}
+
+.card:hover {
+    transform: rotateY(180deg); 
+}
